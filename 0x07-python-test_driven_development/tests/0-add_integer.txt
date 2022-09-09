@@ -15,7 +15,11 @@ Testing for two 0s:
 
 Testing for one 0:
     >>> add_integer(0)
-    0
+    98
+
+Testing floats:
+    >>> add_integer(2.5, 2.5)
+    4
 
 Testing for a string in a:
     >>> add_integer("stringobingo", 0)
@@ -46,3 +50,9 @@ Testing for more than 2 arguments:
     Traceback (most recent call last):
     ...
     TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+Bad argument syntax:
+    >>> add_integer(2 2)
+    Traceback (most recent call last):
+    ...
+    SyntaxError: invalid syntax. Perhaps you forgot a comma?

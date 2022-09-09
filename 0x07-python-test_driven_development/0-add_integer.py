@@ -4,9 +4,11 @@
     Task 0
     Adds two integers
 """
+
+
 def add_integer(a, b=98):
     """
-        Function to add two integers together  
+        Function to add two integers together
     """
     if type(a) is float:
         a = int(a)

@@ -14,8 +14,6 @@ def matrix_divided(matrix, div):
             matrix (matrix of ints or floats): _description_
             div (int or float): _description_
     """
-
-    
     err1 = "matrix must be a matrix (list of lists) of integers/floats"
     if type(div) not in [int, float]:
         raise TypeError("div must be a number")
@@ -29,5 +27,4 @@ def matrix_divided(matrix, div):
             if type(item) not in [int, float]:
                 raise TypeError(err1)
         newMatrix.append(list(map(lambda n: round(n/div, 2), row)))
-
     return (newMatrix)

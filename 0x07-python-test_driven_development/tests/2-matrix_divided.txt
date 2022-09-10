@@ -9,79 +9,79 @@ This is an example text file in reStructuredText format.  First import
 
     >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
-Test for standard matrix:
+Original example:
     >>> matrix = [
-    ...    [1, 2, 3],
-    ...    [4, 5, 6]
-    ...]
+    ...     [1, 2, 3],
+    ...     [4, 5, 6]
+    ... ]
     >>> matrix_divided(matrix, 3)
     [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
 
-Test for standard matrix with negative div:
+Testing for incorrect item types:
     >>> matrix = [
-    ...    [1, 2, 3],
-    ...    [4, 5, 6]
-    ...]
-    >>> matrix_divided(matrix, -3)
-    [[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
-
-Test for unallowed types:
-    >>> matrix = [
-    ...    ["Hello", 2, 3],
-    ...    [4, 5, 6]
-    ...]
+    ...     ["Hello", "world", "!"],
+    ...     [4, 5, 6]
+    ... ]
     >>> matrix_divided(matrix, 3)
     Traceback (most recent call last):
     ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-Test for unballanced row lengths:
+Testing for row lengths:
     >>> matrix = [
-    ...    [1, 2],
-    ...    [4, 5, 6]
-    ...]
+    ...     [1, 2],
+    ...     [4, 5, 6]
+    ... ]
     >>> matrix_divided(matrix, 3)
     Traceback (most recent call last):
     ...
     TypeError: Each row of the matrix must have the same size
 
-Test for div not being a number:
+Testing div type:
     >>> matrix = [
-    ...    [1, 2, 3],
-    ...    [4, 5, 6]
-    ...]
-    >>> matrix_divided(matrix, "hello")
+    ...     [1, 2, 3],
+    ...     [4, 5, 6]
+    ... ]
+    >>> matrix_divided(matrix, "Hello")
     Traceback (most recent call last):
     ...
     TypeError: div must be a number
 
-Test for div not being 0:
+Testing div value:
     >>> matrix = [
-    ...    [1, 2, 3],
-    ...    [4, 5, 6]
-    ...]
+    ...     [1, 2, 3],
+    ...     [4, 5, 6]
+    ... ]
     >>> matrix_divided(matrix, 0)
     Traceback (most recent call last):
     ...
     ZeroDivisionError: division by zero
 
-Test for empty matrix:
+Testing negative div:
+    >>> matrix = [
+    ...     [1, 2, 3],
+    ...     [4, 5, 6]
+    ... ]
+    >>> matrix_divided(matrix, -3)
+    [[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+Testing empty Matrix:
     >>> matrix = [[]]
     >>> matrix_divided(matrix, 3)
     [[]]
 
-Test for None matrix:
+Testing matrix of none:
     >>> matrix = None
     >>> matrix_divided(matrix, 3)
     Traceback (most recent call last):
     ...
     TypeError: 'NoneType' object is not subscriptable
 
-Test for Div == None:
+Testing Div is none:
     >>> matrix = [
-    ...    [1, 2, 3],
-    ...    [4, 5, 6]
-    ...]
+    ...     [1, 2, 3],
+    ...     [4, 5, 6]
+    ... ]
     >>> matrix_divided(matrix, None)
     Traceback (most recent call last):
     ...

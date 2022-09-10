@@ -23,6 +23,6 @@ def matrix_divided(matrix, div):
         for val in row:
             if type(val) not in [int, float]:
                 raise TypeError(strError)
-            new_matrix.append(list(map(lambda n: round(n/div, 2), row)))
+        new_matrix.append(list(map(lambda n: round(n/div, 2), row)))
 
     return (new_matrix)

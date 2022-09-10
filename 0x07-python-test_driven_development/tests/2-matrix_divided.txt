@@ -1,8 +1,8 @@
 The ``matrix_divided`` module
-===============================
+=============================
 
 Using ``matrix_divided``
----------------------
+------------------------
 
 This is an example text file in reStructuredText format.  First import
 ``matrix_divided`` from the ``2-matrix_divided`` module:
@@ -77,7 +77,7 @@ Test for None matrix:
     ...
     TypeError: 'NoneType' object is not subscriptable
 
-Test for Div == None
+Test for Div == None:
     >>> matrix = [
     ...    [1, 2, 3],
     ...    [4, 5, 6]

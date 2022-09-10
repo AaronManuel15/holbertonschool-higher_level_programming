@@ -76,3 +76,13 @@ Test for None matrix:
     Traceback (most recent call last):
     ...
     TypeError: 'NoneType' object is not subscriptable
+
+Test for Div == None
+    >>> matrix = [
+    ...    [1, 2, 3],
+    ...    [4, 5, 6]
+    ...]
+    >>> matrix_divided(matrix, None)
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number

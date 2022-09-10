@@ -64,3 +64,15 @@ Bad argument syntax:
     Traceback (most recent call last):
     ...
     SyntaxError: invalid syntax. Perhaps you forgot a comma?
+
+Checking for Inf:
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
+
+Checking for NaN:
+    >>> add_integer(float("NaN"))
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer

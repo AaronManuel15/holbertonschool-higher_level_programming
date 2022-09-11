@@ -1,0 +1,54 @@
+The ``say_my_name`` module
+=============================
+
+Using ``say_my_name``
+------------------------
+
+This is an example text file in reStructuredText format.  First import
+``say_my_name`` from the ``3-say_my_name`` module:
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Original example 1:
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+    
+Original example 2:
+    >>> say_my_name("Bob")
+    My name is Bob 
+
+Checking for non-allowed data type:
+    >>> say_my_name(1, 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string
+
+Checking for non-allowed data type in second arg:
+    >>> say_my_name("John", 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
+
+Checking for nothing passed:
+    >>> say_my_name()
+    Traceback (most recent call last):
+    ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+Checking for NaN passed:
+    >>> say_my_name(NaN)
+    Traceback (most recent call last):
+    ...
+    NameError: name 'NaN' is not defined
+
+Checking for undefined variable:
+    >>> say_my_name(a)
+    Traceback (most recent call last):
+    ...
+    NameError: name 'a' is not defined
+
+Checking for None passed:
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: first_name must be a string

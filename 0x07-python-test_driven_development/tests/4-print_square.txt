@@ -50,3 +50,9 @@ Testing more than one argument:
     Traceback (most recent call last):
     ...
     TypeError: print_square() takes 1 positional argument but 2 were given
+
+Testing with a negative:
+    >>> print_square(-5)
+    Traceback (most recent call last):
+    ...
+    ValueError: size must be >= 0

@@ -27,12 +27,6 @@ Testing None argument:
     ...
     TypeError: size must be an integer
 
-Testing negative argument:
-    >>> print_square(None)
-    Traceback (most recent call last):
-    ...
-    ValueError: size must be >= 0
-
 Testing a float:
     >>> print_square(5.5)
     Traceback (most recent call last):
@@ -59,3 +53,9 @@ Testing with a negative:
 
 Testing with a zero:
     >>> print_square(0)
+
+Testing with an undefined variable:
+    >>> print_square(a)
+    Traceback (most recent call last):
+    ...
+    NameError: name 'a' is not defined

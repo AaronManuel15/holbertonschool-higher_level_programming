@@ -63,7 +63,7 @@ Testing an integer:
     >>> text_indentation(5)
     Traceback (most recent call last):
     ...
-    TypeError: size must be a string
+    TypeError: text must be a string
 
 Testing with a char:
     >>> text_indentation("a")

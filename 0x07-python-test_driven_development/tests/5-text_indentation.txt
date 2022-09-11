@@ -1,0 +1,61 @@
+The ``text_indentation`` module
+=============================
+
+Using ``text_indentation``
+------------------------
+
+This is an example text file in reStructuredText format.  First import
+``text_indentation`` from the ``5-text_indentation`` module:
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Original example 3:
+    >>> print_square(text)
+    ###
+    ###
+    ###
+    
+Testing no argument:
+    >>> print_square()
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
+Testing None argument:
+    >>> print_square(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Testing a float:
+    >>> print_square(5.5)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Testing with a char:
+    >>> print_square("a")
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Testing more than one argument:
+    >>> print_square(5, 6)
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() takes 1 positional argument but 2 were given
+
+Testing with a negative:
+    >>> print_square(-5)
+    Traceback (most recent call last):
+    ...
+    ValueError: size must be >= 0
+
+Testing with a zero:
+    >>> print_square(0)
+
+Testing with an undefined variable:
+    >>> print_square(a)
+    Traceback (most recent call last):
+    ...
+    NameError: name 'a' is not defined

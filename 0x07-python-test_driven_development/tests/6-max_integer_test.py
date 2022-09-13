@@ -15,8 +15,6 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([-1, -3, -5]), -1)
         """Testing single value"""
         self.assertEqual(max_integer([4]), 4)
-        """Testing variable"""
-        self.assertEqual(max_integer(a), a)
         """Testing string"""
         self.assertEqual(max_integer("string", "s"))
 

@@ -16,7 +16,7 @@ class TestMaxInteger(unittest.TestCase):
         """Testing single value"""
         self.assertEqual(max_integer([4]), 4)
         """Testing string"""
-        self.assertEqual(max_integer("string", "s"))
+        self.assertEqual(max_integer("string", 't'))
 
     def test_invalid(self):
         """Testing mixed values"""

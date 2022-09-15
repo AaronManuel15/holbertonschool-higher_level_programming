@@ -13,7 +13,31 @@ Testing correct example:
     >>> BaseGeometry().integer_validator('int', 89)
 
 Testing bad value type:
-    >>> BaseGeometry().integer_validator('side', 'string')
+    >>> BaseGeometry().integer_validator("side", "twelve")
     Traceback (most recent call last):
     ...
-    TypeError: string must be in integer
+    TypeError: side must be an integer
+
+Testing no arguments:
+    >>> BaseGeometry().integer_validator()
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+Testing one argument:
+    >>> BaseGeometry().integer_validator("name")
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Testing 3 arguments:
+    >>> BaseGeometry().integer_validator("name", "is", 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+Testing negative number:
+    >>> BaseGeometry().integer_validator("name", -5)
+    Traceback (most recent call last):
+    ...
+    ValueError: name must be greater than 0

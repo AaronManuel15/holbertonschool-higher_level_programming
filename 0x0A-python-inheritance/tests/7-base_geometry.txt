@@ -9,6 +9,19 @@ This is an example text file in reStructuredText format.  First import
 
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+Testing for documentation:
+    >>> len(__import__('7-base_geometry').__doc__) > 1
+    True
+    >>> len(__import__('7-base_geometry').BaseGeometry.__doc__) > 1
+    True
+    >>> len(__import__('7-base_geometry').BaseGeometry.area.__doc__) > 1
+    True
+    >>> len(__import__('7-base_geometry').BaseGeometry.integer_validator.__doc__) > 1
+    True
+    >>> print(bg.__doc__)
+     Empty class, except for exception
+    <BLANKLINE>
+
 Testing correct example:
     >>> BaseGeometry().integer_validator('int', 89)
 
@@ -41,3 +54,15 @@ Testing negative number:
     Traceback (most recent call last):
     ...
     ValueError: name must be greater than 0
+
+Testing 0:
+    >>> BaseGeometry().integer_validator("name", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: name must be greater than 0
+
+Testing non int:
+    >>> BaseGeometry().integer_validator("length", 3.5)
+    Traceback (most recent call last):
+    ...
+    TypeError: length must be an integer

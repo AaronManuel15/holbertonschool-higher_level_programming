@@ -10,10 +10,10 @@ This is an example text file in reStructuredText format.  First import
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 Testing correct example:
-    >>> BaseGeometry.integer_validator('int', 89)
+    >>> BaseGeometry().integer_validator('int', 89)
 
 Testing bad value type:
-    >>> BaseGeometry.integer_validator('side', 'string')
+    >>> BaseGeometry().integer_validator('side', 'string')
     Traceback (most recent call last):
     ...
     TypeError: string must be in integer

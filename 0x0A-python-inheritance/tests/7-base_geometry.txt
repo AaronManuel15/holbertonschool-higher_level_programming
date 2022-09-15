@@ -1,0 +1,19 @@
+The ``base_geometry`` module
+===============================
+
+Using ``integer_validator``
+---------------------
+
+This is an example text file in reStructuredText format.  First import
+``integer_validator`` from the ``7-base_geometry`` module:
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Testing correct example:
+    >>> BaseGeometry.integer_validator('int', 89)
+
+Testing bad value type:
+    >>> BaseGeometry.integer_validator('side', 'string')
+    Traceback (most recent call last):
+    ...
+    TypeError: string must be in integer

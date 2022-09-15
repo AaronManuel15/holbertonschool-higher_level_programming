@@ -7,4 +7,9 @@ Using ``print_sorted``
 This is an example text file in reStructuredText format.  First import
 ``print_sorted`` from the ``1-my_list.py`` module:
 
-    >>> print_sorted = __import__('1-my_list').print_sorted
+    >>> MyList = __import__('1-my_list').MyList
+
+Testing correct example:
+    >>> list = [1, 4, 2, 3, 5]
+    >>> MyList.print_sorted(list)
+    [1, 2, 3, 4, 5]

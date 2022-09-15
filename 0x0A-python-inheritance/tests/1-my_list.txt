@@ -1,0 +1,10 @@
+The ``my_list`` module
+===============================
+
+Using ``print_sorted``
+---------------------
+
+This is an example text file in reStructuredText format.  First import
+``print_sorted`` from the ``1-my_list.py`` module:
+
+    >>> print_sorted = __import__('1-my_list').print_sorted

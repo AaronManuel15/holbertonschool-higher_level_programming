@@ -14,7 +14,7 @@ Testing for documentation:
     True
     >>> len(__import__('1-my_list').MyList.__doc__) > 1
     True
-    >>> len(__import__('1-my_list').MYList.print_sorted.__doc__) > 1
+    >>> len(__import__('1-my_list').MyList.print_sorted.__doc__) > 1
     True
     >>> print(MyList().__doc__)
     Class that inherits from list

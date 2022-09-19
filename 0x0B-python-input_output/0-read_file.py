@@ -8,5 +8,5 @@ def read_file(filename=""):
     """Program that eads a text file (UTF8) and prints it to stdout
     """
     with open(filename, encoding="utf=8") as file:
-        fileText = fileText.read()
+        fileText = file.read()
         print(fileText, end="")

@@ -2,6 +2,7 @@
 """ Project 0x08. Python - Input/Output
     Task 3
 """
+import json
 
 
 def to_json_string(my_obj):

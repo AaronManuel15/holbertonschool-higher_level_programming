@@ -23,7 +23,7 @@ class Student:
                 attributes[key] = value
         return (attributes)
 
-def reload_from_json(self, json):
+    def reload_from_json(self, json):
         """Replaces the attributes with data from json file"""
 
         for key, value in json.items():

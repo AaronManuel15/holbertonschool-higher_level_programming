@@ -90,7 +90,9 @@ class Rectangle(Base):
     def display(self):
         """ Displays a graphical representation of the rectangle
         """
+        print("\n" * self.__y, end="")
         for i in range(self.__height):
+            print(" " * self.__x, end="")
             for j in range(self.__width):
                 print("#", end="")
             print("")

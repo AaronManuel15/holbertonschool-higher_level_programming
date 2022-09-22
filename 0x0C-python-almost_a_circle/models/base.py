@@ -34,7 +34,8 @@ class Base:
         """
         filename = cls.__name__ + ".json"
         listDict = []
-        for obj in list_objs:
-            listDict.append(obj.to_dictionary())
+        if list_objs is not None:
+            for obj in list_objs:
+                listDict.append(obj.to_dictionary())
         with open(filename, "w", encoding="utf=8") as f:
             f.write(cls.to_json_string(listDict))

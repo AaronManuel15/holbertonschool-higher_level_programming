@@ -2,6 +2,7 @@
 """ Project 0x0C. Python - Almost a circle
     Task 0
 """
+import json
 
 
 class Base:

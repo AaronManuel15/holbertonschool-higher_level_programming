@@ -40,7 +40,7 @@ class Square(Rectangle):
         """ Assigns an argument to each attribute
         """
         if len(args) > 0:
-            attribute = ['id', 'width', 'height', 'x', 'y']
+            attribute = ['id', 'size', 'x', 'y']
             for arg in range(len(args)):
                 setattr(self, attribute[arg], args[arg])
         if kwargs is not None:

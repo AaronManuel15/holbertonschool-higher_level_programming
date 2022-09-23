@@ -69,3 +69,6 @@ class TestBase(unittest.TestCase):
         self.assertIsNot(r1, r2)
         del r1
         del r2
+
+    def test_load_from_file(self):
+        pass

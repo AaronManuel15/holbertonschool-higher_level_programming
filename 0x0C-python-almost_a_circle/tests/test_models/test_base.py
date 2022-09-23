@@ -55,3 +55,4 @@ class TestBase(unittest.TestCase):
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
         self.assertEqual(list_output, [{'height': 4, 'width': 10, 'id': 89}, {'height': 7, 'width': 1, 'id': 7}])
+        self.assertEqual(Base.from_json_string('[]'), [])

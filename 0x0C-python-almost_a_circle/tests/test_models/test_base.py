@@ -37,6 +37,6 @@ class TestBase(unittest.TestCase):
 
     def test_save_to_file(self):
         listCheck = None
-        Base.save_to_file(listCheck)
-        with open("Base.json", "r") as file:
+        Rectangle.save_to_file(listCheck)
+        with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), '[]')

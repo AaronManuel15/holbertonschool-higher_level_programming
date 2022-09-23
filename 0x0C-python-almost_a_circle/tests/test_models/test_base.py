@@ -2,6 +2,7 @@
 """unit testing for Base class"""
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
 from unittest.mock import patch
 from io import StringIO
 
@@ -30,3 +31,6 @@ class TestBase(unittest.TestCase):
     def test_to_json_string(self):
         listCheck = None
         self.assertEqual(Base.to_json_string(listCheck), '[]')
+        r1 = Rectangle(10, 7, 2, 8)
+        dictionary = r1.to_dictionary()
+        self.assertEqual(Base.to_json_string([dictionary]), '[{"x": 2, "y": 8, "id": 3, "height": 7, "width": 10}]')

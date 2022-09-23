@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+"""unit testing for Base class"""
+import unittest
+from models.base import Base
+from unittest.mock import patch
+from io import StringIO
+
+class TestBase(unittest.TestCase):
+    """class for testing Base class"""
+
+    def test_docstrings(self):
+        self.assertIsNotNone(__import__('models').base.__doc__)
+        self.assertIsNotNone(Base.__doc__)
+        self.assertIsNotNone(Base.__init__.__doc__)
+        self.assertIsNotNone(Base.to_json_string.__doc__)
+        self.assertIsNotNone(Base.save_to_file.__doc__)
+        self.assertIsNotNone(Base.from_json_string.__doc__)
+        self.assertIsNotNone(Base.create.__doc__)
+        self.assertIsNotNone(Base.load_from_file.__doc__)
+    
+    def test_instance(self):
+        classInstance = Base()
+        self.assertEqual(classInstance.id, 1)
+        classInstance = Base()
+        self.assertEqual(classInstance.id, 2)
+        classInstance = Base(89)
+        self.assertEqual(classInstance.id, 89

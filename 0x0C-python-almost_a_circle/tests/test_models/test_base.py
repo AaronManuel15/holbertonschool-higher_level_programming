@@ -26,3 +26,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(classInstance.id, 2)
         classInstance = Base(89)
         self.assertEqual(classInstance.id, 89)
+
+    def test_to_json_string(self):
+        listCheck = None
+        self.assertEqual(Base.to_json_string(listCheck), '[]')

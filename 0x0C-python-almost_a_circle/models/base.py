@@ -4,10 +4,6 @@
 """
 import json
 
-from models.square import Square
-
-from models.rectangle import Rectangle
-
 
 class Base:
     """ Base class to manage id attribute in all future classes
@@ -58,8 +54,8 @@ class Base:
         """ returns an instancd with all attributes already set
         """
         if cls.__name__ == "Rectangle":
-            dummyInstance = Rectangle(1, 1)
+            dummyInstance = cls(1, 1)
         else:
-            dummyInstance = Square(1)
+            dummyInstance = cls(1)
         dummyInstance.update(**dictionary)
         return dummyInstance

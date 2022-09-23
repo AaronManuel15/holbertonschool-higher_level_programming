@@ -34,3 +34,9 @@ class TestBase(unittest.TestCase):
         r1 = Rectangle(10, 7, 2, 8)
         dictionary = r1.to_dictionary()
         self.assertEqual(Base.to_json_string([dictionary]), '[{"x": 2, "y": 8, "id": 3, "height": 7, "width": 10}]')
+
+    def test_save_to_file(self):
+        listCheck = None
+        Base.save_to_file(listCheck)
+        with open("Base.json", "r") as file:
+            self.assertEqual(file.read(), '[]')

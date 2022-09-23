@@ -21,19 +21,24 @@ class TestBase(unittest.TestCase):
         self.assertIsNotNone(Base.load_from_file.__doc__)
 
     def test_instance(self):
-        classInstance = Base()
-        self.assertEqual(classInstance.id, 1)
-        classInstance = Base()
-        self.assertEqual(classInstance.id, 2)
-        classInstance = Base(89)
-        self.assertEqual(classInstance.id, 89)
+        classInstance1 = Base()
+        self.assertEqual(classInstance1.id, 3)
+        classInstance2 = Base()
+        self.assertEqual(classInstance2.id, 4)
+        classInstance3 = Base(89)
+        self.assertEqual(classInstance3.id, 89)
+        del classInstance1
+        del classInstance2
+        del classInstance3
 
     def test_to_json_string(self):
         listCheck = None
         self.assertEqual(Base.to_json_string(listCheck), '[]')
         r1 = Rectangle(10, 7, 2, 8)
         dictionary = r1.to_dictionary()
-        self.assertEqual(Base.to_json_string([dictionary]), '[{"x": 2, "y": 8, "id": 5, "height": 7, "width": 10}]')
+        self.assertEqual(Base.to_json_string([dictionary]), '[{"x": 2, "y": 8, "id": 7, "height": 7, "width": 10}]')
+        del r1
+        del dictionary
 
     def test_save_to_file(self):
         r1 = Rectangle(10, 7, 2, 8)
@@ -41,7 +46,7 @@ class TestBase(unittest.TestCase):
         Rectangle.save_to_file([r1, r2])
         with open("Rectangle.json", "r") as file:
             self.assertEqual(file.read(), \
-                '[{"x": 2, "y": 8, "id": 3, "height": 7, "width": 10}, {"x": 0, "y": 0, "id": 4, "height": 4, "width": 2}]')
+                '[{"x": 2, "y": 8, "id": 5, "height": 7, "width": 10}, {"x": 0, "y": 0, "id": 6, "height": 4, "width": 2}]')
         Base.save_to_file(None)
         with open("Base.json", "r") as file:
             self.assertEqual(file.read(), '[]')
@@ -56,3 +61,11 @@ class TestBase(unittest.TestCase):
         list_output = Rectangle.from_json_string(json_list_input)
         self.assertEqual(list_output, [{'height': 4, 'width': 10, 'id': 89}, {'height': 7, 'width': 1, 'id': 7}])
         self.assertEqual(Base.from_json_string('[]'), [])
+
+    def test_create(self):
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertIsNot(r1, r2)
+        del r1
+        del r2

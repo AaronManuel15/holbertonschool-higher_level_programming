@@ -33,10 +33,15 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Base.to_json_string(listCheck), '[]')
         r1 = Rectangle(10, 7, 2, 8)
         dictionary = r1.to_dictionary()
-        self.assertEqual(Base.to_json_string([dictionary]), '[{"x": 2, "y": 8, "id": 3, "height": 7, "width": 10}]')
+        self.assertEqual(Base.to_json_string([dictionary]), '[{"x": 2, "y": 8, "id": 5, "height": 7, "width": 10}]')
 
     def test_save_to_file(self):
-        listCheck = None
-        Rectangle.save_to_file(listCheck)
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
         with open("Rectangle.json", "r") as file:
+            self.assertEqual(file.read(), \
+                '[{"x": 2, "y": 8, "id": 3, "height": 7, "width": 10}, {"x": 0, "y": 0, "id": 4, "height": 4, "width": 2}]')
+        Base.save_to_file(None)
+        with open("Base.json", "r") as file:
             self.assertEqual(file.read(), '[]')

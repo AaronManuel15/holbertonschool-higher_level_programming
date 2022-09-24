@@ -23,3 +23,35 @@ class TestRectangle(unittest.TestCase):
         self.assertIsNotNone(Rectangle.__str__.__doc__)
         self.assertIsNotNone(Rectangle.update.__doc__)
         self.assertIsNotNone(Rectangle.to_dictionary.__doc__)
+
+    def test_init(self):
+        Base._Base__nb_objects = 0
+        self.assertEqual(Base._Base__nb_objects, 0)
+        Rectangle(3, 5)
+        self.assertEqual(Base._Base__nb_objects, 1)
+        rect1 = Rectangle(5, 5, 0, 0, 1)
+        self.assertEqual(rect1.id, 1)
+
+    def test_InputErrors(self):
+        with self.assertRaises(TypeError):
+            Rectangle()
+        with self.assertRaises(TypeError):
+            Rectangle(1, 1, 1, 1, 1, 2)
+        with self.assertRaises(TypeError):
+            Rectangle("string", 1)
+        with self.assertRaises(TypeError):
+            Rectangle(1, "string again")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 1, "string", 1)
+        with self.assertRaises(TypeError):
+            Rectangle(1, 1, 1, "String")
+        with self.assertRaises(TypeError):
+            Rectangle(None)
+        with self.assertRaises(ValueError):
+            Rectangle(0, 5)
+        with self.assertRaises(ValueError):
+            Rectangle(5, 0)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 1, -1, 1)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 1, 1, -1)

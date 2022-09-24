@@ -56,3 +56,32 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(r.__str__(), "[Square] (12) 2/1 - 4")
         r = Square(5, 1)
         self.assertEqual(r.__str__(), f"[Square] ({r.id}) 1/0 - 5")
+
+    def test_update(self):
+        rect4 = Square(10, 10, 10, 10)
+        self.assertEqual(rect4.id, 10)
+        self.assertEqual(rect4.size, 10)
+        self.assertEqual(rect4.x, 10)
+        self.assertEqual(rect4.y, 10)
+        rect4.update(89, 2, 4, 5)
+        self.assertEqual(rect4.id, 89)
+        self.assertEqual(rect4.size, 2)
+        self.assertEqual(rect4.x, 4)
+        self.assertEqual(rect4.y, 5)
+        rect4 = Square(10, 10, 10, 10)
+        rect4.update(size=1, x=2, id=89, y=3)
+        self.assertEqual(rect4.id, 89)
+        self.assertEqual(rect4.size, 1)
+        self.assertEqual(rect4.x, 2)
+        self.assertEqual(rect4.y, 3)
+        del rect4
+
+    def test_to_dictionary(self):
+        r1 = Square(10, 1, 9)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Square(1, 1)
+        r2.update(**r1_dictionary)
+        self.assertIsInstance(r1_dictionary, dict)
+        self.assertIsNot(r2, r1)
+        del r1
+        del r2

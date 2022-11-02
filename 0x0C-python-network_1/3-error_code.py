@@ -9,6 +9,7 @@ if __name__ == "__main__":
     try:
         with request.urlopen(argv[1]) as resp:
             resp = resp.read().decode('utf8')
+            print(resp)
 
     except error.HTTPError as uhoh:
         print("Error code: {}".format(uhoh.code))

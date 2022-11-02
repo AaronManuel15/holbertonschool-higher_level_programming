@@ -5,7 +5,7 @@
 if __name__ == "__main__":
     from urllib import request, parse
     from sys import argv
-    
+
     parameter = {'email': argv[2]}
     data = parse.urlencode(parameter)
     data = data.encode()

@@ -9,6 +9,6 @@ if __name__ == "__main__":
     parameter = {'email': argv[2]}
     data = parse.urlencode(parameter)
     data = data.encode()
-    req = request.urlopen(argv[1], data)
+    req = request.Request(argv[1], data)
     with request.urlopen(req) as resp:
         print(resp.read().decode('utf8'))

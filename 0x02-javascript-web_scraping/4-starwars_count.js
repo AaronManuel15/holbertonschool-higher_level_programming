@@ -3,7 +3,7 @@
 const request = require('request');
 let movieCount = 0;
 
-request('https://swapi-api.hbtn.io/api/films/', function (err, response, body) {
+request(process.argv[2], function (err, response, body) {
   if (err) throw err;
   const data = JSON.parse(body).results;
   for (const movie in data) {

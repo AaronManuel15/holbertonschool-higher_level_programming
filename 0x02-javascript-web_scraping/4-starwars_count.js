@@ -10,7 +10,7 @@ request(process.argv[2], function (err, response, body) {
     const chars = data[movie].characters;
     for (const char in chars) {
       if (chars[char].includes('/18/')) {
-        movieCount--;
+        movieCount++;
       }
     }
   }
